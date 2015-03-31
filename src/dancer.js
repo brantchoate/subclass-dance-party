@@ -27,6 +27,15 @@ makeDancer.prototype.setPosition = function(top, left){
   this.$node.css(styleSettings);
 };
 
+makeDancer.prototype.lineUp = function(){
+var val = 15;
+
+  for(var i = 0; i < window.dancers.length; i++){
+      val = val + 50;
+      window.dancers[i].setPosition(val, 0);
+  }
+}
+
 
 
 
