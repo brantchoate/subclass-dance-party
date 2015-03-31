@@ -35,7 +35,7 @@ $(document).ready(function(){
 
     window.dancers.push(dancer);
 
-    $('body').append(dancer.$node);
+    $('.floor').append(dancer.$node);
   });
 });
 
