@@ -2,9 +2,8 @@ $(document).ready(function(){
   window.dancers = [];
 
   $(".addLineupButton").on("click",function(event){
-    window.makeBlinkyDancer.prototype.lineUp();
+    window.makeDancer.prototype.lineUp();
   });
-
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -36,6 +35,10 @@ $(document).ready(function(){
     window.dancers.push(dancer);
 
     $('.floor').append(dancer.$node);
+
+    $('.dancer').on("mouseover",function(event){
+      $(this).css({'border':'10px solid blue'})
+    })
   });
 });
 

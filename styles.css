@@ -3,7 +3,11 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background: url(img/bg-deadmau5.jpeg) no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
   font-size: 18px;
 
 }
@@ -26,4 +30,7 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+/*.dancer:hover {
+  border:10px solid blue;
 
+}*/
