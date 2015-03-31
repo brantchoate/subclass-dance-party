@@ -6,6 +6,10 @@ var edmDancer = function(top, left, timeBetweenSteps){
   //this.timeBetweenSteps = timeBetweenSteps;
 };
 
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 edmDancer.prototype = Object.create(makeDancer.prototype);
 edmDancer.prototype.constructor = edmDancer;
 
@@ -15,6 +19,12 @@ edmDancer.prototype.step = function(){
   // toggle() is a jQuery method to show/hide the <span> tag.
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
-  this.$node.velocity({ translateY: 50 }, 500)
-  .velocity({ translateY: -50, textShadowBlur: "10px"}, 200);
+
+
+  var scaleUp = getRandomInt(-20, -1);
+  var easingUp = getRandomInt(480, 500);
+  var scaleDown = getRandomInt(-1, 0);
+  var easingDown = getRandomInt(200, 220);
+  this.$node.velocity({scaleY: scaleUp}, easingUp)
+  .velocity({scaleY: scaleDown}, easingDown);
 };
