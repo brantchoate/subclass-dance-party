@@ -1,17 +1,51 @@
 $(document).ready(function(){
   window.dancers = [];
+  var $container = $(".floor");
+  var screenWidth = window.screen.availWidth;
+  var screenHeight = window.screen.availHeight;
+  var chromeHeight = screenHeight - (document.documentElement.clientHeight || screenHeight);
+
+  $container
+      .css("perspective-origin", screenWidth/2 + "px " + ((screenHeight * 0.45) - chromeHeight) + "px");
 
   $(".addLineupButton").on("click",function(event){
     window.makeDancer.prototype.lineUp();
   });
 
-
-  $(".addEqualizer").on("click", function(event){
-    var equalizerNum = window.width / 40;
-
+  $(".addBg").on("click",function(event){
+    $('.floor').css('display','block');
+    setInterval(function(){
+      $('.floor').velocity({ opacity: .2 }, { duration: 400 }).
+      velocity({ opacity: .5 }, { duration: 400 });
+    }, 800);
   });
 
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
+  $(".addEqualizer").on("click", function(event){
+
+    var equalizerNum = $(window).width() / 40;
+    var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+    var width = 0;
+    for(var i = 0; i < equalizerNum-1; i++){
+     var dancer = new dancerMakerFunction(
+      500,
+      width,
+      Math.random() * 1000
+    );
+      dancer.$node.css('background','#f53f3f');
+
+    window.dancers.push(dancer);
+
+    $('.floor').append(dancer.$node);
+    width += 40;
+    }
+
+
+  });
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -42,7 +76,11 @@ $(document).ready(function(){
 
     window.dancers.push(dancer);
 
-    $('.floor').append(dancer.$node);
+    $('.floor').append(dancer.$node).velocity("fadeIn", {duration:5000});
+  });
+
+  $('body').on('mouseover','.dancer', function(e){
+
   });
 });
 

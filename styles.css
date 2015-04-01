@@ -1,5 +1,30 @@
-body, html{
-  height:100%;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
 }
 body{
   margin: 0px;
@@ -9,31 +34,51 @@ body{
   -o-background-size: cover;
   -webkit-background-size: cover;
   font-size: 18px;
+  overflow:hidden;
+  font-family: 'Oswald', sans-serif;
 
 }
-body, a:link, a:visited, a:active{
-  color: lightblue;
-}
-.title, .addDancerButton{
-  padding:5px 12px;
-  float:right;
+a {
+  text-decoration:none;
+  text-transform:uppercase;
+  margin-right:20px;
+  color:#64E000;
 }
 .topbar{
-  height:32px;
-  background-color: #555;
+  padding: 10px;
+  background-color: #222;
 }
 .title{
-  background-color: #777;
+  margin-right:20px;
+  padding:5px;
+  color:#fff;
+}
+.floor{
+  display:none;
+  opacity:.2;
+  background:blue;
+  height:1000px;
+  perspective: 200px;
+  -webkit-perspective: 200px;
+  -moz-perspective: 200px;
+  -ms-perspective: 200px;
+
+  transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
 }
 .dancer{
-  border:15px solid #59ea00;
+  border:20px solid #59ea00;
   position:absolute;
   display:block !important;
   -webkit-transition: border .2s linear;  /* Chrome 1-25, Safari 3.2+ */
    -moz-transition: border .2s linear;  /* Firefox 4-15 */
      -o-transition: border .2s linear;  /* Opera 10.50–12.00 */
         transition: border .2s linear;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  opacity: 1;
 }
-.dancer:hover {
-  border:15px solid #e42917;
-}
+/*.dancer:hover {
+  border:40px solid yellow;
+  opacity: 1;
+}*/
